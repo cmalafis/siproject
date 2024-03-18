@@ -1,0 +1,480 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: '2'
+    imageregistry.operator.openshift.io/checksum: 'sha256:804dca0ee76a0c052c9574f869a5dc2a487e7a443e9280311f4d9ba44379acb6'
+    operator.openshift.io/spec-hash: 453a429468834e4e2719f3d95eca8f5933eb8b05587ee8af8048d6c0ae35083b
+    release.openshift.io/version: 4.14.15
+  name: image-registry
+  generation: 2
+  managedFields:
+    - manager: cluster-image-registry-operator
+      operation: Update
+      apiVersion: apps/v1
+      time: '2024-03-18T18:16:44Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:imageregistry.operator.openshift.io/checksum': {}
+            'f:operator.openshift.io/spec-hash': {}
+            'f:release.openshift.io/version': {}
+          'f:labels':
+            .: {}
+            'f:docker-registry': {}
+        'f:spec':
+          'f:progressDeadlineSeconds': {}
+          'f:replicas': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector': {}
+          'f:strategy':
+            'f:type': {}
+          'f:template':
+            'f:metadata':
+              'f:annotations':
+                .: {}
+                'f:imageregistry.operator.openshift.io/dependencies-checksum': {}
+                'f:target.workload.openshift.io/management': {}
+              'f:labels':
+                .: {}
+                'f:docker-registry': {}
+            'f:spec':
+              'f:topologySpreadConstraints':
+                .: {}
+                'k:{"topologyKey":"kubernetes.io/hostname","whenUnsatisfiable":"DoNotSchedule"}':
+                  .: {}
+                  'f:labelSelector': {}
+                  'f:maxSkew': {}
+                  'f:topologyKey': {}
+                  'f:whenUnsatisfiable': {}
+                'k:{"topologyKey":"node-role.kubernetes.io/worker","whenUnsatisfiable":"DoNotSchedule"}':
+                  .: {}
+                  'f:labelSelector': {}
+                  'f:maxSkew': {}
+                  'f:topologyKey': {}
+                  'f:whenUnsatisfiable': {}
+              'f:volumes':
+                .: {}
+                'k:{"name":"bound-sa-token"}':
+                  .: {}
+                  'f:name': {}
+                  'f:projected':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:sources': {}
+                'k:{"name":"ca-trust-extracted"}':
+                  .: {}
+                  'f:emptyDir': {}
+                  'f:name': {}
+                'k:{"name":"installation-pull-secrets"}':
+                  .: {}
+                  'f:name': {}
+                  'f:secret':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:items': {}
+                    'f:optional': {}
+                    'f:secretName': {}
+                'k:{"name":"registry-certificates"}':
+                  .: {}
+                  'f:configMap':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:name': {}
+                  'f:name': {}
+                'k:{"name":"registry-storage"}':
+                  .: {}
+                  'f:name': {}
+                  'f:persistentVolumeClaim':
+                    .: {}
+                    'f:claimName': {}
+                'k:{"name":"registry-tls"}':
+                  .: {}
+                  'f:name': {}
+                  'f:projected':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:sources': {}
+                'k:{"name":"trusted-ca"}':
+                  .: {}
+                  'f:configMap':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:items': {}
+                    'f:name': {}
+                    'f:optional': {}
+                  'f:name': {}
+              'f:containers':
+                'k:{"name":"registry"}':
+                  'f:image': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/etc/pki/ca-trust/extracted"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                    'k:{"mountPath":"/etc/pki/ca-trust/source/anchors"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                    'k:{"mountPath":"/etc/secrets"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                    'k:{"mountPath":"/registry"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                    'k:{"mountPath":"/usr/share/pki/ca-trust-source"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                    'k:{"mountPath":"/var/lib/kubelet/"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                    'k:{"mountPath":"/var/run/secrets/openshift/serviceaccount"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                      'f:readOnly': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources':
+                    .: {}
+                    'f:requests':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                  'f:lifecycle':
+                    .: {}
+                    'f:preStop':
+                      .: {}
+                      'f:exec':
+                        .: {}
+                        'f:command': {}
+                  'f:command': {}
+                  'f:livenessProbe':
+                    .: {}
+                    'f:failureThreshold': {}
+                    'f:httpGet':
+                      .: {}
+                      'f:path': {}
+                      'f:port': {}
+                      'f:scheme': {}
+                    'f:initialDelaySeconds': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:timeoutSeconds': {}
+                  'f:env':
+                    'k:{"name":"REGISTRY_OPENSHIFT_METRICS_ENABLED"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"REGISTRY_HEALTH_STORAGEDRIVER_THRESHOLD"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"REGISTRY_STORAGE_CACHE_BLOBDESCRIPTOR"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"REGISTRY_STORAGE_DELETE_ENABLED"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"REGISTRY_HEALTH_STORAGEDRIVER_INTERVAL"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"REGISTRY_OPENSHIFT_SERVER_ADDR"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"REGISTRY_HTTP_SECRET"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"REGISTRY_HTTP_ADDR"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"REGISTRY_LOG_LEVEL"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    .: {}
+                    'k:{"name":"REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"REGISTRY_HTTP_TLS_CERTIFICATE"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"REGISTRY_OPENSHIFT_QUOTA_ENABLED"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"REGISTRY_HEALTH_STORAGEDRIVER_ENABLED"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"REGISTRY_HTTP_TLS_KEY"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"REGISTRY_HTTP_NET"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"REGISTRY_STORAGE"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                  'f:readinessProbe':
+                    .: {}
+                    'f:failureThreshold': {}
+                    'f:httpGet':
+                      .: {}
+                      'f:path': {}
+                      'f:port': {}
+                      'f:scheme': {}
+                    'f:initialDelaySeconds': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:timeoutSeconds': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":5000,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:protocol': {}
+                  'f:name': {}
+              'f:dnsPolicy': {}
+              'f:priorityClassName': {}
+              'f:serviceAccount': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:nodeSelector': {}
+              'f:terminationGracePeriodSeconds': {}
+              'f:serviceAccountName': {}
+              'f:securityContext':
+                .: {}
+                'f:fsGroup': {}
+                'f:fsGroupChangePolicy': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:deployment.kubernetes.io/revision': {}
+        'f:status':
+          'f:availableReplicas': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+          'f:updatedReplicas': {}
+      subresource: status
+  namespace: openshift-image-registry
+  labels:
+    docker-registry: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      docker-registry: default
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        docker-registry: default
+      annotations:
+        imageregistry.operator.openshift.io/dependencies-checksum: 'sha256:32865388e68f3d41a349734e1f86472060f2d84ebb718de5ff4b8850c77fa1ca'
+        target.workload.openshift.io/management: '{"effect": "PreferredDuringScheduling"}'
+    spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+      restartPolicy: Always
+      serviceAccountName: registry
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 55
+      securityContext:
+        fsGroup: 1000300000
+        fsGroupChangePolicy: OnRootMismatch
+      containers:
+        - resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 5000
+              scheme: HTTPS
+            initialDelaySeconds: 15
+            timeoutSeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          terminationMessagePath: /dev/termination-log
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - sleep
+                  - '25'
+          name: registry
+          command:
+            - /bin/sh
+            - '-c'
+            - mkdir -p /etc/pki/ca-trust/extracted/edk2 /etc/pki/ca-trust/extracted/java /etc/pki/ca-trust/extracted/openssl /etc/pki/ca-trust/extracted/pem && update-ca-trust extract && exec /usr/bin/dockerregistry
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 5000
+              scheme: HTTPS
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          env:
+            - name: REGISTRY_STORAGE
+              value: filesystem
+            - name: REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY
+              value: /registry
+            - name: REGISTRY_HTTP_ADDR
+              value: ':5000'
+            - name: REGISTRY_HTTP_NET
+              value: tcp
+            - name: REGISTRY_HTTP_SECRET
+              value: 37f9fa118476666f103c0e32b256b08b457bc19de2c5b42bc6c44005146bcf3fd4ce3fa496d376bba24273ba9d8507aee4245a285548bc73b4afb9b892418f39
+            - name: REGISTRY_LOG_LEVEL
+              value: info
+            - name: REGISTRY_OPENSHIFT_QUOTA_ENABLED
+              value: 'true'
+            - name: REGISTRY_STORAGE_CACHE_BLOBDESCRIPTOR
+              value: inmemory
+            - name: REGISTRY_STORAGE_DELETE_ENABLED
+              value: 'true'
+            - name: REGISTRY_HEALTH_STORAGEDRIVER_ENABLED
+              value: 'true'
+            - name: REGISTRY_HEALTH_STORAGEDRIVER_INTERVAL
+              value: 10s
+            - name: REGISTRY_HEALTH_STORAGEDRIVER_THRESHOLD
+              value: '1'
+            - name: REGISTRY_OPENSHIFT_METRICS_ENABLED
+              value: 'true'
+            - name: REGISTRY_OPENSHIFT_SERVER_ADDR
+              value: 'image-registry.openshift-image-registry.svc:5000'
+            - name: REGISTRY_HTTP_TLS_CERTIFICATE
+              value: /etc/secrets/tls.crt
+            - name: REGISTRY_HTTP_TLS_KEY
+              value: /etc/secrets/tls.key
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: registry-storage
+              mountPath: /registry
+            - name: registry-tls
+              mountPath: /etc/secrets
+            - name: ca-trust-extracted
+              mountPath: /etc/pki/ca-trust/extracted
+            - name: registry-certificates
+              mountPath: /etc/pki/ca-trust/source/anchors
+            - name: trusted-ca
+              mountPath: /usr/share/pki/ca-trust-source
+            - name: installation-pull-secrets
+              mountPath: /var/lib/kubelet/
+            - name: bound-sa-token
+              readOnly: true
+              mountPath: /var/run/secrets/openshift/serviceaccount
+          terminationMessagePolicy: File
+          image: 'quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b43f469b1767d6856e615b77e6270acf05417d1d1b86ae2f74263cff10d37cdd'
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector:
+            matchLabels:
+              docker-registry: default
+        - maxSkew: 1
+          topologyKey: node-role.kubernetes.io/worker
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector:
+            matchLabels:
+              docker-registry: default
+      serviceAccount: registry
+      volumes:
+        - name: registry-storage
+          persistentVolumeClaim:
+            claimName: pvc-image-registry
+        - name: registry-tls
+          projected:
+            sources:
+              - secret:
+                  name: image-registry-tls
+            defaultMode: 420
+        - name: ca-trust-extracted
+          emptyDir: {}
+        - name: registry-certificates
+          configMap:
+            name: image-registry-certificates
+            defaultMode: 420
+        - name: trusted-ca
+          configMap:
+            name: trusted-ca
+            items:
+              - key: ca-bundle.crt
+                path: anchors/ca-bundle.crt
+            defaultMode: 420
+            optional: true
+        - name: installation-pull-secrets
+          secret:
+            secretName: installation-pull-secrets
+            items:
+              - key: .dockerconfigjson
+                path: config.json
+            defaultMode: 420
+            optional: true
+        - name: bound-sa-token
+          projected:
+            sources:
+              - serviceAccountToken:
+                  audience: openshift
+                  expirationSeconds: 3600
+                  path: token
+            defaultMode: 420
+      dnsPolicy: ClusterFirst
+      priorityClassName: system-cluster-critical
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 60

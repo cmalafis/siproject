@@ -1,0 +1,5 @@
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: registry
+  namespace: openshift-image-registry
